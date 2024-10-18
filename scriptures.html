@@ -28,88 +28,74 @@
         margin: 0;
         overflow-x: hidden;
       }
-
+      .scr{
+        background-color: transparent;
+        position: fixed;
+        top: 10px;
+        left:33vw;
+        z-index: 1000;
+      }
       .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start; /* Ensure items align left */
-  align-items: center;
-  padding: 5px 10px;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-up {
-  display: flex;
-  gap: 15px; /* Control the gap between links */
-  align-items: center;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  padding: 5px 10px; /* Compact padding for links */
-  font-size: 14px; /* Smaller font size for better fit */
-  font-weight: 500;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.navbar a:hover {
-  color: rgb(250, 219, 153);
-  border-color: rgb(250, 219, 153);
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  border-radius: 10px;
-  z-index: 1001;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 5px 10px;
-  color: rgb(250, 219, 153);
-  text-decoration: none;
-}
-
-.dropdown-menu a:hover {
-  background-color: rgba(250, 219, 153, 0.1);
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* Mobile view adjustments */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-  }
-
-  .navbar-up {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
-
-  .navbar a {
-    margin: 5px 0;
-  }
+    padding: 10px;
 }
+
+.navbar-up a {
+    margin-right: 20px; /* Space between navbar items */
+    text-decoration: none;
+    cursor: pointer;
+    color: white ;/* Default link color */
+    font-size: 18px;
+    border: 1px solid white; /* White border around anchor tags */
+    border-radius: 10px; /* Rounded corners */
+    padding: 5px 10px; /* Padding for better appearance */
+    box-sizing: border-box; /* Ensures padding and border are inside the element */
+}
+
+/* Dropdown menu styling */
+.navbar .dropdown-menu {
+    background-color: #f8f9fa; /* Light background for dropdown */
+    border-radius: 5px;        /* Rounded corners */
+    padding: 10px;             /* Padding for a more spacious look */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    position: absolute;        /* To prevent it from overlapping */
+    z-index: 1000;             /* Ensure it appears on top */
+}
+
+.navbar .dropdown-item {
+    padding: 10px 15px;        /* Increase padding for dropdown items */
+    font-size: 16px;           /* Larger text for readability */
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #007bff; /* Highlight on hover */
+    color: white;
+}
+
+/* Dropdown toggle styling */
+.nav-link.dropdown-toggle {
+    cursor: pointer;
+}
+
+/* Ensure the dropdown aligns properly */
+.nav-item.dropdown {
+    position: relative; /* Keep dropdown aligned with other menu items */
+}
+
+/* Ensure other menu items align without overlap */
+.navbar .navbar-up {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar .navbar-up a, 
+.navbar .nav-link {
+    padding: 10px;
+    margin: 0 10px;
+}
+
 
       .scroll-top-btn {
         position: fixed; /* Fixed position */
@@ -142,6 +128,7 @@
       .content {
         padding: 20px 120px;
         margin-bottom: 50px;
+        margin-top: 50px;
       }
       .content h1 {
         text-align: center;
@@ -287,36 +274,38 @@
       }
 
       .searchInput {
-        box-sizing: border-box;
-        width: 300px;
-        height: 35px;
-        padding: 5px 20px;
-        border-radius: 50px;
-        border: 0;
-      }
-      .searchInput:focus {
-        outline: 0;
-      }
-      .searchForm button {
-        padding: 0;
-        border: 0;
-        background-color: transparent;
-        position: relative;
-        top: 2px;
-        right: 55px;
-      }
-      .searchForm button i {
-        color: #555;
-        padding: 9px 15px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: linear 0.16s;
-        margin-left: 1rem;
-      }
-      .searchForm button i:hover {
-        color: #23d1c8;
-      }
+  box-sizing: border-box;
+  width: 200px; /* Adjust the width to make the search bar smaller */
+  height: 30px; /* Adjust the height to make it smaller */
+  padding: 5px 15px; /* Adjust padding if necessary */
+  border-radius: 50px;
+  border: 0;
+}
 
+.searchInput:focus {
+  outline: 0;
+}
+
+.searchForm button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+  top: 2px;
+  right: 40px; /* Adjust this if needed to align with the smaller search bar */
+}
+
+.searchForm button i {
+  color: #555;
+  padding: 7px 12px; /* Adjust padding to fit smaller button */
+  font-size: 14px; /* Slightly smaller font size */
+  cursor: pointer;
+  transition: linear 0.16s;
+}
+
+.searchForm button i:hover {
+  color: #23d1c8;
+}
 
 
       footer {
@@ -416,16 +405,7 @@
 .creatorDiv p {
   margin: 0;
 }
-
-
-
-
-
-
-
-
-   
-
+  
       .social-icons a {
         display: inline-flex;
         justify-content: center;
@@ -551,36 +531,61 @@
     </style>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="navbar-up">
-        <a href="index.html">Home</a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-toggle">Other Resources</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="discussion-forum.html">Discussion Forum</a>
-            <a class="dropdown-item" href="stories.html">Stories</a>
-            <a class="dropdown-item" href="meerabai.html">Meerabai</a>
-            <a class="dropdown-item" href="surdas.html">Surdas</a>
-            <a class="dropdown-item" href="morning-mantras.html">Morning Mantras</a>
-            <a class="dropdown-item" href="wallpaper.html">Wallpaper</a>
-          </div>
-        </div>
-        <a href="#">Devotional Resources</a>
-        <a href="#">Quiz</a>
-        <a href="#">Digital Resources</a>
-        <a href="#">ToDo List</a>
-        <a href="#">Feedback Form</a>
-        <a href="#">Partner</a>
-      </div>
-    </nav>
-    <button id="scrollTopBtn" class="scroll-top-btn">  <i class="fas fa-arrow-up"></i></button>
-    <div class="scriptMain">
-      <div class="navigation">
-        <div class="homeDiv">
-          <button id="homeBtn"><a href="./index.html">Home</a></button>
-        </div>
+   
+  <!-- Updated Navbar with Home Button and Search Bar -->
+<div class="navbar scr">
+  <div class="navbar-up">
 
-      
+    <!-- Links -->
+    <a href="scriptures.html">Scriptures</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="#" onclick="showLoginForm()">Discussion Forum</a>
+
+    <!-- Dropdown -->
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Other Resources <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="devotional-resources.html">Devotional Resources</a></li>
+        <li><a class="dropdown-item" href="quiz.html">Quiz</a></li>
+        <li><a class="dropdown-item" href="DIgital.html">Digital Resources</a></li>
+        <li><a class="dropdown-item" href="Personalized.html">ToDo List</a></li>
+        <li><a class="dropdown-item" href="Feedback.html">Feedback Form</a></li>
+        <li><a class="dropdown-item" href="partner.html">Partner</a></li>
+      </ul>
+    </div>
+    
+    <!-- Search Bar -->
+    <form class="searchForm">
+      <input
+        type="text"
+        class="searchInput"
+        placeholder="Search all the content"
+      />
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </div>
+</div>
+
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" class="scroll-top-btn">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Script Main Section -->
+<div class="scriptMain">
+  <div class="navigation">
+    <div class="homeDiv">
+      <button id="homeBtn"><a href="./index.html">Home</a></button>
+    </div>
+    
+    <!-- Any other content for the scriptMain section can go here -->
+  </div>
+</div>
+
+
+
 
     <div class="content">
       <h1>Scriptures</h1>
